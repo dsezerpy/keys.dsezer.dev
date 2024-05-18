@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: github-runner
     steps:
       - uses: actions/checkout@v2
         name: Check out code
@@ -31,7 +31,7 @@ jobs:
           registry: docker.dsezer.dev
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
